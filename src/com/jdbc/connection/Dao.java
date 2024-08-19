@@ -1,7 +1,5 @@
 package com.jdbc.connection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 import javax.sql.DataSource;
 
@@ -12,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 //	Dao = Data Access Object this class used for Operations
 
-@Component
-public class Dao {
+	@Component
+	public class Dao {
 	
 	@Autowired
 	private DataSource data;
@@ -99,5 +97,7 @@ public class Dao {
 				System.out.println("One row effected : "+ rowDelete);
 		System.out.println("Dao Completeds....");
 	}
+	
+	
 	
 }

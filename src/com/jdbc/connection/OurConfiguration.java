@@ -29,6 +29,8 @@ public class OurConfiguration {
     }
 	
 	
+//	JDBC Template... This templete having all jdbc internall connections....
+	
 	@Bean
 	public JdbcTemplate jdbcTemplate() {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource());
