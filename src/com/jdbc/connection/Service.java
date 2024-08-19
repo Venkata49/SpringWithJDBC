@@ -1,11 +1,7 @@
 package com.jdbc.connection;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,38 +12,30 @@ public class Service {
 	@Autowired
 	private Dao dao;
 
-	@Autowired
-	private DataSource data;
-	
-	public void save(EmployePojo emp)  {
+	public void save(EmployePojo emp) {
 		System.out.println("Service start...");
-//		dao.save(emp);
-		Connection con = null;
-		PreparedStatement ps = null;
-		try {
-		 con = data.getConnection();
-		 ps = con.prepareStatement("insert into EmployePojo values(?,?,?,?)");
-		ps.setInt(1, emp.getEmployeId());
-		ps.setString(2, emp.getEmployeName());
-		ps.setInt(3, emp.getEmployeAge());
-		ps.setDouble(4, emp.getEmployeSal());
+		dao.save(emp);
+		System.out.println("Service Completed...");
 		
-		ps.executeUpdate();
-		}catch(Exception e) {
-			System.out.println(e);
-		}finally {
-			try {
-			ps.close();
-			con.close();
-			
-			}catch(Exception e) {
-				System.out.println(e);
-			}
-		}
-		
-		
-		System.out.println("Service completed...");
 	}
 	
+//	Update Operation...
 	
+	public void update(double employeSal, int employeId) {
+		System.out.println("Service Started....");
+		
+		dao.update(employeSal, employeId);
+				
+		System.out.println("Service Completeds....");
+	}
+	
+//	Delete Operation...
+	
+	public void delete(int employeId) {
+		System.out.println("Service Started....");
+		
+		dao.delete( employeId);
+				
+		System.out.println("Service Completeds....");
+	}
 }
