@@ -1,6 +1,7 @@
 package com.jdbc.connection;
 
 
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 	private DataSource data;
 	
 	@Autowired
-	private JdbcTemplate jdb;
+	private JdbcTemplate jdb;	//	19/08/2023
 
 	
 	
@@ -98,6 +99,6 @@ import org.springframework.stereotype.Component;
 		System.out.println("Dao Completeds....");
 	}
 	
-	
+
 	
 }
